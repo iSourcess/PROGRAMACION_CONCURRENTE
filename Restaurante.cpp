@@ -3,6 +3,7 @@ using namespace std;
 #include <thread>
 #include <cstdlib>
 #include <ctime>
+#include <chrono>
 
 void cocinar(string accion, string cliente, string comida, int id) {
     cout << "Esclavo " << id << ": " << accion << " " << comida
@@ -42,7 +43,11 @@ void pedido (int contador)
     t4.join();
     t5.join();
 
-    cout<<"Sale pedido de " << Cliente_al << endl;
+    cout<<"Preparando pai..."<<endl;
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(5000));   
+
+    cout<<"Sale pedido de " << Cliente_al << endl<<endl<<endl<<endl;
 
     pedido (contador+1);
 
